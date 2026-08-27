@@ -418,6 +418,58 @@ a:hover {
     border-color: var(--accent-cyan);
 }
 
+/* ============================================
+   SPECIAL EFFECT: GALLERY ITEM 5 (DIVERSI)
+   ============================================ */
+
+.gallery-item-5 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-item-5::after {
+    content: '🚚\A TRASPORTI DA/PER CASA\A\A Accompagniamo i nostri utenti\A da e per casa\A quotidianamente\A\A 🌞\A AD AGOSTO\A SIAMO APERTI\A\A Solo una settimana\A di chiusura\A\A Perchè siamo diversi!';
+    white-space: pre;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(157, 78, 221, 0.6);
+    line-height: 1.6;
+    pointer-events: none;
+    transition: all var(--transition-normal);
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(157, 78, 221, 0.2) 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 217, 255, 0.2);
+}
+
+.gallery-item-5:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.gallery-item-5:hover {
+    background-image: none !important;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(157, 78, 221, 0.15) 100%);
+    border-color: var(--accent-cyan);
+}
+
+.gallery-item-5:hover .gallery-overlay {
+    background: radial-gradient(circle at center, rgba(0, 217, 255, 0.3), rgba(157, 78, 221, 0.2));
+    opacity: 1;
+    backdrop-filter: blur(15px);
+}
+
 @media (max-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -427,6 +479,11 @@ a:hover {
             "box-5 box-5"
             "box-6 box-7"
             "box-8 box-9";
+    }
+
+    .gallery-item-5::after {
+        font-size: 0.95rem;
+        padding: 1.5rem;
     }
 }
 
@@ -446,6 +503,12 @@ a:hover {
     .gallery-item:nth-child(8),
     .gallery-item:nth-child(9) {
         display: none;
+    }
+
+    .gallery-item-5::after {
+        font-size: 0.85rem;
+        padding: 1rem;
+        line-height: 1.4;
     }
 }
 
@@ -471,6 +534,14 @@ a:hover {
     position: relative;
     display: inline-block;
     width: 100%;
+    /* HIGH CONTRAST - Enhanced Title */
+    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-green) 50%, var(--accent-cyan) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+    text-shadow: 0 0 30px rgba(0, 217, 255, 0.3);
+    font-size: clamp(1.8rem, 5vw, 3rem);
 }
 
 .section-title::after {
