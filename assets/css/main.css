@@ -329,6 +329,32 @@ a:hover {
     z-index: 1;
     max-width: 900px;
     padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.hero-logo {
+    width: 120px;
+    height: 120px;
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 255, 107, 0.3));
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 255, 107, 0.3));
+    }
+    50% {
+        filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.7)) drop-shadow(0 0 60px rgba(0, 255, 107, 0.5));
+    }
 }
 
 .hero-title {
@@ -336,7 +362,7 @@ a:hover {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 1rem;
+    margin: 0;
     font-weight: 900;
     text-shadow: 0 0 30px rgba(0, 217, 255, 0.2);
 }
@@ -427,30 +453,57 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(/images/grid-img/diversi.jpg) !important;
+    background-size: cover;
+    background-position: center;
+}
+
+.gallery-item-5::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 217, 255, 0.05) 0%, rgba(157, 78, 221, 0.05) 100%);
+    transition: opacity var(--transition-normal);
+    opacity: 0;
+    z-index: 1;
 }
 
 .gallery-item-5::after {
-    content: '🚚\A TRASPORTI DA/PER CASA\A\A Accompagniamo i nostri utenti\A da e per casa\A quotidianamente\A\A 🌞\A AD AGOSTO\A SIAMO APERTI\A\A Solo una settimana\A di chiusura\A\A Perchè siamo diversi!';
+    content: '🚚  TRASPORTI DA/PER CASA\A\AAccompagniamo i nostri utenti\Ada e per casa quotidianamente\A\A🌞  AD AGOSTO SIAMO APERTI\A\ASolo una settimana di chiusura\A\APerchè siamo diversi!';
     white-space: pre;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translate(-50%, -50%) scale(0.85);
     opacity: 0;
     text-align: center;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #fff;
-    text-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(157, 78, 221, 0.6);
-    line-height: 1.6;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(0, 217, 255, 0.9), 
+                 0 0 50px rgba(157, 78, 221, 0.7),
+                 0 0 75px rgba(0, 255, 107, 0.5),
+                 2px 2px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.7;
     pointer-events: none;
     transition: all var(--transition-normal);
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.1) 0%, rgba(157, 78, 221, 0.2) 100%);
-    padding: 2rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 217, 255, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 217, 255, 0.2);
+    background: linear-gradient(135deg, rgba(0, 50, 100, 0.8) 0%, rgba(80, 20, 100, 0.8) 100%);
+    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    backdrop-filter: blur(12px);
+    border: 2px solid rgba(0, 217, 255, 0.5);
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), 
+                inset 0 0 30px rgba(0, 217, 255, 0.2),
+                0 0 60px rgba(157, 78, 221, 0.3);
+    z-index: 10;
+    max-width: 85%;
+}
+
+.gallery-item-5:hover::before {
+    opacity: 1;
 }
 
 .gallery-item-5:hover::after {
@@ -459,15 +512,11 @@ a:hover {
 }
 
 .gallery-item-5:hover {
-    background-image: none !important;
-    background: linear-gradient(135deg, rgba(0, 217, 255, 0.15) 0%, rgba(157, 78, 221, 0.15) 100%);
     border-color: var(--accent-cyan);
 }
 
 .gallery-item-5:hover .gallery-overlay {
-    background: radial-gradient(circle at center, rgba(0, 217, 255, 0.3), rgba(157, 78, 221, 0.2));
     opacity: 1;
-    backdrop-filter: blur(15px);
 }
 
 @media (max-width: 1024px) {
@@ -482,8 +531,8 @@ a:hover {
     }
 
     .gallery-item-5::after {
-        font-size: 0.95rem;
-        padding: 1.5rem;
+        font-size: 1rem;
+        padding: 2rem 1.5rem;
     }
 }
 
@@ -506,9 +555,15 @@ a:hover {
     }
 
     .gallery-item-5::after {
-        font-size: 0.85rem;
-        padding: 1rem;
-        line-height: 1.4;
+        font-size: 0.9rem;
+        padding: 1.5rem 1rem;
+        line-height: 1.5;
+    }
+
+    .hero-logo {
+        width: 80px;
+        height: 80px;
+        font-size: 3rem;
     }
 }
 
